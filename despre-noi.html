@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despre noi - CLEANING EVOLUTION</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Firma de Curățenie CLEANING EVOLUTION</h1>
+        <nav>
+            <a href="index.html">Acasă</a>
+            <a href="despre-noi.html">Despre noi</a>
+            <a href="#">Servicii</a>
+            <a href="#">Prețuri</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+   <main>
+   <section>
+
+    <div class="chenar-despre-noi">
+    <img src="Imagini/Despre-noi.gif" alt="Despre noi" class="gif-despre-noi">
+    <span class="linie-portocalie"></span>
+    <p>
+        Suntem o echipă pasionată de curățenie și profesionalism, cu experiență în domeniu și dorința de a oferi servicii la cele mai înalte standarde. Misiunea noastră este să aducem un plus de confort și siguranță în spațiile clienților noștri, prin soluții eficiente și personalizate. Valorile noastre sunt seriozitatea, punctualitatea și respectul față de fiecare client.
+    </p>
+</div>
+
+<div class="chenar-paragraf-slideshow">
+    <img src="Imagini/Calitate-personalizata.gif" alt="Calitate Personalizată" class="gif-calitate-personalizata">
+    <span class="linie-portocalie"></span>
+    <p>
+        Deși firma noastră este nouă, echipa este formată din oameni dedicați, cu experiență în curățenie și o dorință sinceră de a face fiecare spațiu să strălucească. Știm că fiecare client este diferit, așa că ne adaptăm nevoilor fiecăruia și punem suflet în fiecare detaliu. Oferim servicii de calitate, construind încredere prin respect, atenție și rezultate care fac diferența.
+    </p>
+    <div class="slideshow-container">
+        <img class="slide" src="Imagini/poza1.webp" alt="Curățenie 1" style="display:block;">
+        <img class="slide" src="Imagini/poza2.jpeg" alt="Curățenie 2" style="display:none;">
+        <img class="slide" src="Imagini/poza3.webp" alt="Curățenie 3" style="display:none;">
+        <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+        <button class="next" onclick="plusSlides(1)">&#10095;</button>
+    </div>
+</div>
+</section>
+
+<script>
+let slideIndex = 0;
+const slides = document.getElementsByClassName('slide');
+showSlide(slideIndex);
+
+function plusSlides(n) {
+    showSlide(slideIndex += n);
+}
+
+function showSlide(n) {
+    if (n >= slides.length) { slideIndex = 0; }
+    if (n < 0) { slideIndex = slides.length - 1; }
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndex].style.display = "block";
+}
+</script>
+</main>
+    <footer>
+        <p>&copy; 2025 CLEANING EVOLUTION. Toate drepturile rezervate.</p>
+    </footer>
+</body>
+</html>
