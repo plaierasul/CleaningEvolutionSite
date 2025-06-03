@@ -1,19 +1,17 @@
 body {
     font-family: "Ancizar Serif", serif;
-    background: yellow;
+    background: url('Imagini/BackgroundCE2.avif') no-repeat center center fixed;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    padding-bottom: 48px; /* or at least the height of your footer */
+
 }
-header {
-    background: black;
-    color:yellow;
-    padding: 20px;
-    text-align: center;
-}
+
 header nav a {
     display: inline-block;
     padding: 10px 18px;
@@ -26,7 +24,40 @@ header nav a {
     font-weight: bold;
     transition: background 0.2s, color 0.2s;
 }
-
+.site-logo {
+    height: 60px;
+    margin-right: 18px;
+    vertical-align: middle;
+}
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #000;
+    color: yellow;
+    padding: 20px;
+}
+@media (min-width: 600px) {
+    header {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .site-logo {
+        margin-right: 18px;
+        margin-left: 0;
+    }
+    header h1 {
+        margin: 0 0 0 12px;
+    }
+}
+.site-logo {
+    height: 60px;
+    margin-right: 18px;
+    vertical-align: middle;
+    /* optional: */
+    margin-left: 0;
+}
 header nav a:hover {
     background: #FFD700;
     color: #000;
@@ -35,10 +66,14 @@ main {
     padding: 60px;
 }
 footer {
-    background: #222;
-    color: #fff;
+    width: 100%;
+    background: transparent;
+    color: #ffffff;
     text-align: center;
-    padding: 10px;
+    padding: 12px 0;
+    font-size: 1em;
+    box-shadow: none;
+    border: none;
 }
 .chenar-bine-ati-venit {
     background: black ;
@@ -52,7 +87,12 @@ footer {
     max-width: 600px;   /* adaugă sau modifică această linie */
     width: 100%;        /* asigură-te că există */
     box-sizing: border-box;
+    box-shadow:
+        0 12px 36px 0 rgba(0,0,0,1),
+    0 24px 64px 0 rgba(0,0,0,0.18),
+    0 2px 8px 0 rgba(0,0,0,0.12);
 }
+
  .gif-bine-ati-venit {
     display: block;
     margin: 0 auto 16px auto;
@@ -67,17 +107,7 @@ footer {
     margin: 18px 0 18px 0;
     border-radius: 2px;
 }
-.chenar-serviciile-noastre {
-    background: #000;
-    color: #FFD700;
-    padding: 24px 30px;
-    border-radius: 14px;
-    border: 2px solid #FFD700;
-    margin: 30px auto;
-    max-width: 600px;
-    text-align: center;
-    font-size: 1.5em; /* sau cât dorești */
-}
+
 .chenar-serviciile-noastre ul {
     list-style: none;
     padding-left: 0;
@@ -115,6 +145,64 @@ footer {
     text-align: center;
     font-size: 1.15em;
 }
+.chenar-servicii-slideshow {
+    background: #000;
+    color: #FFD700;
+    padding: 24px 30px 40px 30px;
+    border-radius: 14px;
+    border: 2px solid #FFD700;
+    margin: 30px auto;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    position: relative;
+    box-shadow: 0 12px 36px 0 rgba(0,0,0,0.32), 0 24px 64px 0 rgba(0,0,0,0.18), 0 2px 8px 0 rgba(0,0,0,0.12);
+}
+.serviciu-slide {
+    display: none;
+    animation: fadein 0.5s;
+}
+.serviciu-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 12px;
+}
+.serviciu-pret {
+    font-size: 1.2em;
+    color: orange;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.chenar-servicii-slideshow .prev,
+.chenar-servicii-slideshow .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: 36px;
+    height: 36px;
+    margin-top: -18px;
+    color: #FFD700;
+    font-weight: bold;
+    font-size: 24px;
+    background: rgba(0,0,0,0.5);
+    border: none;
+    border-radius: 50%;
+    user-select: none;
+    transition: background 0.2s;
+}
+.chenar-servicii-slideshow .prev:hover,
+.chenar-servicii-slideshow .next:hover {
+    background: #FFD700;
+    color: #000;
+}
+.chenar-servicii-slideshow .prev { left: 10px; }
+.chenar-servicii-slideshow .next { right: 10px; }
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 body {
     display: flex;
     flex-direction: column;
@@ -149,17 +237,7 @@ section {
     h1, h2, h3 {
         font-size: 1.2em;
     }
-    /* Elimină sau comentează nav a pentru a păstra butoanele pe orizontală */
-    /*
-    nav a {
-        display: block;
-        margin: 8px auto;
-        width: 90%;
-        text-align: center;
-    }
-    */
-    
-   
+
 }
 html, body {
     overflow-x: hidden;
@@ -193,7 +271,22 @@ html, body {
     width: 100%;
     border-radius: 14px;
 }
-.chenar-despre-noi,
+.chenar-despre-noi {
+  width: 100%;
+  max-width: 600px;         /* Match .slideshow-container max-width */
+  min-height: unset;        /* Remove min-height so it grows with content */
+  box-sizing: border-box;
+  margin: 0 auto 32px auto;
+  background: #000000;
+  border-radius: 16px;      /* Match .slideshow-container border-radius */
+  color: #FFD700;
+  padding: 32px 0 48px 0;   /* Match .slideshow-container padding */
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  text-align: center;
+}
+.chenar-despre-noi {
+    font-size: 1.2em;
+}
 .chenar-paragraf-slideshow {
     background: #000;
     color: #FFD700;
@@ -218,7 +311,7 @@ html, body {
 
 .slideshow-container {
     position: relative;
-    max-width: 400px;
+    max-width: 600px;
     margin: 18px auto 0 auto;
 }
 
@@ -256,4 +349,196 @@ html, body {
 }
 .next {
     right: 0;
+}
+.chenar-servicii-slideshow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    position: relative;
+    max-width: 600px;
+    margin: 30px auto;
+}
+.serviciu-slide {
+    flex: 1 1 45%;
+    max-width: 45%;
+    margin: 10px;
+    display: none;
+}
+@media (max-width: 800px) {
+    .serviciu-slide {
+        max-width: 100%;
+        flex-basis: 100%;
+    }
+}
+/* Stylish slideshow container */
+.slideshow-container {
+  position: relative;
+  width: 600px;
+  margin: 40px auto;
+  background: #f8f8f8;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  padding: 32px 0 48px 0;
+  overflow: hidden;
+}
+
+/* Stylish frames */
+.frame {
+  display: none;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  border-radius: 12px;
+  margin: 0 16px;
+  padding: 32px 0;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.frame:active, .frame:focus {
+  transform: scale(1.03);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+}
+
+/* Slide navigation buttons */
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem;
+  color: #333;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: background 0.2s;
+  z-index: 10;
+}
+.slide-btn.prev { left: 8px; }
+.slide-btn.next { right: 8px; }
+.slide-btn:hover { background: #e0eafc; }
+.slideshow-container {
+  position: relative;
+  width: 600px;
+  max-width: 100%;
+  margin: 40px auto;
+  background: #000;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  padding: 32px 0 48px 0;
+  overflow: hidden;
+  display: block;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(.77,0,.18,1);
+  will-change: transform;
+}
+
+.serviciu-slide.frame {
+  min-width: 50%;
+  box-sizing: border-box;
+  padding: 0 8px;
+  display: block;
+  margin: 0;
+}
+@media (max-width: 800px) {
+  .slideshow-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  background: #000; /* Black background */
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  padding: 32px 0 48px 0;
+  overflow: hidden;
+}
+  .serviciu-slide {
+    margin: 10px 0;
+    max-width: 100%;
+  }
+}
+.frame-icon img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 5px;
+}
+.frame-title {
+  font-size: 0.9em;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #2a2a2a;
+}
+.frame-description {
+  font-size: 69%;
+  color: rgb(255, 255, 255);
+}
+.frame {
+  display: none;
+  background: #000000;           /* Black background */
+  border-radius: 12px;
+  margin: 0 16px;
+  padding: 32px 0;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #FFD700;             /* Yellow text */
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.frame-title,
+.frame-desc {
+  color: #FFD700;             /* Yellow for both title and description */
+}
+.frame-separator {
+  display: block;
+  width: 120px;      /* doubled from 60px */
+  height: 4px;
+  background: orange;
+  margin: 16px auto 18px auto;
+  border-radius: 2px;
+}
+.cleaning-logo {
+  width: 80px;         /* sau cât vrei tu */
+  height: 80px;
+  object-fit: cover;   /* taie marginile dacă nu e pătrată */
+  border-radius: 10%;  /* face imaginea rotundă */
+  display: block;
+}
+/*Puncte pentru carusel*/
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+  gap: 10px;
+}
+.carousel-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #FFD700;
+  opacity: 0.4;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+  border: 2px solid orange;
+}
+.carousel-dot.active {
+  opacity: 1;
+  transform: scale(1.2);
+  background: orange;
+}
+.carousel-track {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
 }
