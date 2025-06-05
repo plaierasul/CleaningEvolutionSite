@@ -8,13 +8,128 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    padding-bottom: 48px; /* or at least the height of your footer */
+    padding-bottom: 48px; 
 
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.header-chenar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px 60px;
+    background: #000000;
+    border-radius: 12px;
+    
+}
+
+.logo-chenar {
+    margin: 0;
+}
+.header-contact-info {
+    margin-left: 0;
+    align-items: flex-start;
+}
+.header-top-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 120px;
+}
+.site-logo {
+    max-width: 180px; 
+    max-height: 80px; 
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.contact-details {
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.header-contact-info {
+    margin-left: auto; /* Pushes contact info to the right */
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-btn {
+  background: #FFD700;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-weight: bold;
+  margin-top: 8px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.contact-btn:hover {
+  background: #000;
+  color: #FFD700;
+  border: 2px solid #FFD700;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 12px 0 0 0;
+    border-top: 4px solid orange; 
+    margin-top: 8px;
+    border-radius: 12px; 
+    background: transparent;
+    overflow: hidden;
+}
+
+.header-contact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.contact-info {
+  color: #FFD700;
+  text-decoration: none;
+  font-size: 1em;
+  margin: 0 4px;
+}
+
+.contact-btn {
+  background: #FFD700;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: bold;
+  margin-left: 12px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.contact-btn:hover {
+  background: #000;
+  color: #FFD700;
+  border: 2px solid #FFD700;
 }
 
 header nav a {
     display: inline-block;
-    padding: 10px 18px;
+    padding: 8px 12px;
     margin: 5px 6px;
     border: 2px solid #000000;
     border-radius: 8px;
@@ -270,7 +385,7 @@ html, body {
 .gif-despre-noi {
     display: block;
     margin: 0px auto 16px auto; /* 8px sus, auto st/dr, 8px jos */
-    max-width: 250px;
+    max-width: 200px;
     width: 100%;
     border-radius: 14px;
 }
@@ -286,6 +401,11 @@ html, body {
   padding: 32px 0 48px 0;   /* Match .slideshow-container padding */
   box-shadow: 0 4px 24px rgba(0,0,0,0.12);
   text-align: center;
+}
+.chenar-despre-noi .linie-portocalie {
+  width: 500px;   /* sau cât vrei tu, ex: 40px */
+  margin-left: auto;
+  margin-right: auto;
 }
 .chenar-despre-noi {
     font-size: 1.2em;
@@ -552,4 +672,5 @@ html, body {
   'GRAD' 0,
   'opsz' 24
 }
+
 
